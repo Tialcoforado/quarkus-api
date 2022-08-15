@@ -1,10 +1,6 @@
 package br.com.bb.bb.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -40,7 +36,8 @@ public class Cliente {
     @Email
     private String email;
 
-//    private Categoria categoria;
+    @ManyToOne
+    private Categoria categoria;
 
     public Long getId(){
         return id;
@@ -81,12 +78,13 @@ public class Cliente {
         this.email = email;
     }
 
-//    public Categoria getCategoria() {
-//        return categoria;
-//    }
-//
-//    public void setCategoria(Categoria categoria) {
-//        this.categoria = categoria;
-//    }
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        categoria.findById();
+        //        this.categoria = categoria;
+    }
 
 }

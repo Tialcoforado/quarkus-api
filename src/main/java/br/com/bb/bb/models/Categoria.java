@@ -1,26 +1,28 @@
 package br.com.bb.bb.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "categorias")
 public class Categoria {
 
     @Id
-    private int codigo;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long codigo;
     private String nome;
 
+
     public Categoria(){}
-    public Categoria(int codigo, String nome) {
+    public Categoria(long codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
     }
 
-    public int getCodigo() {
+    public long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
 
