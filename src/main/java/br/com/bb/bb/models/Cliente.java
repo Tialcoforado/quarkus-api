@@ -39,10 +39,13 @@ public class Cliente {
     @ManyToOne
     private Categoria categoria;
 
-    public Long getId(){
+    private Long categoriaCode;
+
+    public Long getId() {
         return id;
     }
-    public void setId(Long id){
+
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -83,8 +86,14 @@ public class Cliente {
     }
 
     public void setCategoria(Categoria categoria) {
-        categoria.findById();
-        //        this.categoria = categoria;
+        this.categoria = categoria;
     }
 
+    public Long getCategoriaCode() {
+        return categoriaCode;
+    }
+
+    public void setCategoriaCode(Long categoriaCode) {
+        this.categoriaCode = categoriaCode;
+    }
 }
